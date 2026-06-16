@@ -329,21 +329,21 @@
 
     /* PHOTOGRAPHY */
     .photo-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      grid-template-rows: 260px 260px 260px;
-      gap: 2px;
+      columns: 3;
+      column-gap: 4px;
     }
     .photo-item {
       background: var(--mid); overflow: hidden;
-      position: relative; display: flex; align-items: center; justify-content: center;
+      position: relative; display: block;
+      break-inside: avoid;
+      margin-bottom: 4px;
     }
-    .photo-item.wide { grid-column: span 2; }
-    .photo-item.tall { grid-row: span 2; }
-    .photo-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
-    .photo-item:hover img { transform: scale(1.06); }
+    .photo-item.wide { break-inside: avoid; }
+    .photo-item.tall { break-inside: avoid; }
+    .photo-item img { width: 100%; height: auto; display: block; transition: transform 0.5s; }
+    .photo-item:hover img { transform: scale(1.03); }
     .photo-placeholder {
-      width: 100%; height: 100%;
+      width: 100%; height: 200px;
       display: flex; flex-direction: column;
       align-items: center; justify-content: center; gap: 0.5rem;
       border: 1px dashed rgba(200,245,60,0.15);
@@ -469,6 +469,19 @@
     </ul>
   </nav>
 
+
+  <!-- HERO PHOTO -->
+  <div style="width:100%; height:100vh; overflow:hidden; position:relative;">
+    <img src="DSC4153.jpg" alt="Puma x F1 motocross event Las Vegas" 
+         style="width:100%; height:100%; object-fit:cover; object-position:center; display:block;">
+    <div style="position:absolute; inset:0; background:linear-gradient(to bottom, rgba(10,10,10,0.2) 0%, rgba(10,10,10,0.5) 100%);"></div>
+    <div style="position:absolute; bottom:3rem; left:3rem;">
+      <div style="font-family:'DM Mono',monospace; font-size:0.68rem; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.6); margin-bottom:0.5rem;">Photography — Puma × F1 Las Vegas</div>
+      <div style="font-family:'Bebas Neue',sans-serif; font-size:clamp(1.5rem,4vw,3rem); color:#ffffff; line-height:1;">Shot by Matthew Navarra</div>
+    </div>
+    <a href="#about" style="position:absolute; bottom:3rem; right:3rem; font-family:'DM Mono',monospace; font-size:0.68rem; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.6); text-decoration:none; display:flex; align-items:center; gap:0.5rem;">Scroll to explore ↓</a>
+  </div>
+
   <!-- HERO -->
   <div class="hero">
     <div class="hero-bg"></div>
@@ -489,7 +502,7 @@
     </div>
     <div class="hero-stats">
       <div class="hero-stat">
-        <span class="num">132K+</span>
+        <span class="num">500K+</span>
         <span class="label">Followers Grown</span>
       </div>
       <div class="hero-stat">
@@ -506,7 +519,7 @@
   <!-- METRICS STRIP -->
   <div class="metrics-strip">
     <div class="metric-item">
-      <span class="metric-num">132K+</span>
+      <span class="metric-num">500K+</span>
       <span class="metric-label">Followers Gained</span>
       <p class="metric-sub">Across 6 platforms at Selkirk Sport</p>
     </div>
@@ -535,7 +548,7 @@
         <h2 class="section-title">STRATEGY<br>MEETS<br><span style="color:var(--accent)">CRAFT</span></h2>
         <p>I'm a social media director and content creator who does the whole thing — strategy, photography, video, copywriting, analytics, and everything in between. I don't hand off creative. I make it.</p>
         <p>My background spans <strong>sports brands, Vegas hospitality, nightlife, and multi-client agencies</strong> — which means I can adapt voice and strategy to almost any audience without starting from scratch.</p>
-        <p>Currently leading social at <strong>Selkirk Sport</strong>, where I've grown the brand's combined following by 132K+ and built the content operation from the ground up.</p>
+        <p>Currently leading social at <strong>Selkirk Sport</strong>, where I've grown the brand's combined following by 500K+ and built the content operation from the ground up.</p>
         <div class="about-tags">
           <span class="tag">Social Strategy</span>
           <span class="tag">Content Creation</span>
@@ -593,7 +606,7 @@
         <div class="case-body">
           <div class="case-company">Selkirk Sport · Dec 2022 – Present</div>
           <div class="case-title">Building a Pickleball Brand's Social Presence From the Ground Up</div>
-          <p class="case-desc">Took over full social strategy and content production for Selkirk Sport — the fastest-growing equipment brand in pickleball. Grew combined following by 132K+ across 6 platforms, generated 736K+ engagements, and independently produced all photography used across social, packaging, web, and paid ads.</p>
+          <p class="case-desc">Took over full social strategy and content production for Selkirk Sport — the fastest-growing equipment brand in pickleball. Grew combined following by 500K+ across 6 platforms, generated 736K+ engagements, and independently produced all photography used across social, packaging, web, and paid ads.</p>
           <div class="case-tags">
             <span class="case-tag">Strategy</span>
             <span class="case-tag">Photography</span>
@@ -737,9 +750,6 @@
       <div style="font-family:'DM Mono',monospace; font-size:0.68rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--muted); margin-bottom:0.75rem;">Puma × F1 — Las Vegas Event</div>
     </div>
     <div class="photo-grid fade-up" style="margin-bottom:3px;">
-      <div class="photo-item wide">
-        <img src="DSC4153.jpg" alt="Puma x F1 — motocross lineup at night">
-      </div>
       <div class="photo-item">
         <img src="DSC4618.jpg" alt="Portrait at Puma x F1 event">
       </div>
@@ -749,7 +759,7 @@
       <div class="photo-item">
         <img src="DSC3885.jpg" alt="Puma x F1 ATV portrait">
       </div>
-      <div class="photo-item wide">
+      <div class="photo-item">
         <img src="DSC3874.jpg" alt="Puma x F1 neon lit portrait">
       </div>
       <div class="photo-item">
@@ -758,8 +768,11 @@
       <div class="photo-item">
         <img src="DSC3991.jpg" alt="ASVP sign at Puma x F1 event">
       </div>
-      <div class="photo-item wide">
+      <div class="photo-item">
         <img src="IMG_1575.jpg" alt="Racing suit performer on car at Puma x F1 event">
+      </div>
+      <div class="photo-item">
+        <img src="DSC4153.jpg" alt="Puma x F1 — motocross lineup at night">
       </div>
     </div>
 
@@ -767,7 +780,7 @@
       <div style="font-family:'DM Mono',monospace; font-size:0.68rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--muted); margin-bottom:0.75rem;">Selkirk Sport — Editorial &amp; Product</div>
     </div>
     <div class="photo-grid fade-up">
-      <div class="photo-item wide">
+      <div class="photo-item">
         <img src="selkirk-pickleball-clothing-essentials-editorial-147.jpg" alt="Selkirk editorial — action shot">
       </div>
       <div class="photo-item">
@@ -779,7 +792,7 @@
       <div class="photo-item">
         <img src="selkirk-pickleball-clothing-essentials-editorial-060.jpg" alt="Selkirk — female player action">
       </div>
-      <div class="photo-item wide">
+      <div class="photo-item">
         <img src="selkirk-pickleball-clothing-essentials-editorial-199.jpg" alt="Selkirk — lifestyle editorial">
       </div>
       <div class="photo-item">
@@ -806,7 +819,7 @@
         <div class="timeline-body">
           <div class="timeline-role">Head of Social Media</div>
           <div class="timeline-company">Selkirk Sport Pickleball</div>
-          <p class="timeline-desc">Own end-to-end strategy, content production, photography, analytics, and community management across 6 platforms. Grew combined following 132K+, generated 736K+ engagements, and independently produce all brand photography used across social, packaging, and paid ads.</p>
+          <p class="timeline-desc">Own end-to-end strategy, content production, photography, analytics, and community management across 6 platforms. Grew combined following 500K+, generated 736K+ engagements, and independently produce all brand photography used across social, packaging, and paid ads.</p>
           <div class="timeline-pills">
             <span class="pill">Instagram</span><span class="pill">TikTok</span>
             <span class="pill">Facebook</span><span class="pill">LinkedIn</span>
